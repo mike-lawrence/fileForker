@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-	import __init__ as fileForker
+	import fileForker
 	tempChild = fileForker.childClass(childFile='exampleChildFile')
 	tempChild.initDict['a'] = 1
 	tempChild.start()
