@@ -12,6 +12,10 @@ class childClass:
 		self.qFrom = billiard.Queue()
 		self.started = False
 	def f(self,childFile,qTo,qFrom,**initDict):
+		import sys
+		import os
+		childPath,childFile = os.path.split(childFile)
+		sys.path.append(childPath)
 		if childFile[-3:len(childFile)]=='.py':
 			childFile = childFile[0:-3]
 		import __builtin__
@@ -20,7 +24,6 @@ class childClass:
 		for n, v in initDict.items():
 			__builtin__.__dict__[n] = v
 		exec('import '+childFile)
-		import sys
 		sys.exit()
 	def start(self):
 		if self.started:
