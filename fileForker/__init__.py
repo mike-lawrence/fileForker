@@ -12,11 +12,8 @@ class childClass:
 		self.qFrom = billiard.Queue()
 		self.started = False
 	def f(self,childFile,qTo,qFrom,initDict):
-		import sys
-		import __builtin__
-		for n, v in initDict.items():
-			__builtin__.__dict__[n] = v
 		execfile(childFile)
+		import sys
 		sys.exit()
 	def start(self):
 		if self.started:

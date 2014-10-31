@@ -1,22 +1,4 @@
-# Useful to have the following at the top of all your child files in case you want to uncomment and run directly
-'''
-class dummyQTo:
-	def empty(self):
-		return True
-
-class dummyQFrom:
-	def put(self,message):
-		print message
-
-qTo = dummyQTo()
-qFrom = dummyQFrom()
-'''
-
-#Also useful to put any variables expected to be supplied to initDict here, again in case you want to uncomment and run directly, but also to help you remember what the script is expecting
-'''
-a = 1
-'''
-def exampleChildFunction(qTo,qFrom):
+def exampleChildFunction(qTo,qFrom,a):
 	print qTo #make sure 'qTo' is visible
 	print a #make sure 'a' is visible 
 	import math
@@ -30,11 +12,11 @@ def exampleChildFunction(qTo,qFrom):
 	while not done:
 		if not qTo.empty():
 			message = qTo.get()
-			print message
+			print 'Message "'+message+'" received by child1'
 			if message=='hi':
 				qFrom.put('hello')
 				import time
 				time.sleep(5)
 				done = True
 
-exampleChildFunction(qTo,qFrom)
+exampleChildFunction(qTo,qFrom,**initDict)
